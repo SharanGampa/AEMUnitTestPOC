@@ -22,8 +22,8 @@ steps:
     goals: 'install'
 - task: PublishCodeCoverageResults@1
   inputs:
+    condition: always()
     codeCoverageTool: 'JaCoCo'
     summaryFileLocation: '**/site/jacoco/jacoco.xml'
     reportDirectory: '**/site/cobertura'
     additionalCodeCoverageFiles: '**/site/jacoco/**'
-    condition: always()
