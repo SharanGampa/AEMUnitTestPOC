@@ -25,4 +25,4 @@ steps:
     codeCoverageTool: 'JaCoCo'
     summaryFileLocation: '**/site/jacoco/jacoco.xml'
     reportDirectory: '**/site/cobertura'
-    additionalCodeCoverageFiles: '**/site/jacoco/index.html'
+    additionalCodeCoverageFiles: '**/site/jacoco/**'
