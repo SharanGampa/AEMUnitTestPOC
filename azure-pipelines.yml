@@ -23,4 +23,6 @@ steps:
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: 'JaCoCo'
-    summaryFileLocation: '**/site/jacoco/index.html'
+    summaryFileLocation: '**/site/jacoco/jacoco.xml'
+    reportDirectory: '**/site/cobertura'
+    additionalCodeCoverageFiles: '**/site/jacoco/index.html'
