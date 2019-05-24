@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-- master  
+- master
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -21,10 +21,8 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'install'
-- task: PublishCodeCoverageResults@1
-  inputs:
-    condition: always()
-    codeCoverageTool: 'JaCoCo'
-    summaryFileLocation: '**/site/jacoco/jacoco.xml'
-    reportDirectory: '**/site/cobertura'
-    additionalCodeCoverageFiles: '**/site/jacoco/**'
+    codeCoverageToolOption: 'JaCoCo'
+    inputs:
+      summaryFileLocation: '**/site/jacoco/jacoco.xml'
+      reportDirectory: '**/site/cobertura'
+      additionalCodeCoverageFiles: '**/site/jacoco/**'
