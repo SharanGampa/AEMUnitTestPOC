@@ -1,20 +1,22 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>Org.test.AEM.POC</groupId>
-  <artifactId>Org.test.AEM.POC</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>Org.test.AEM.POC</name>
-  <dependencies>
-  	<!-- https://mvnrepository.com/artifact/org.testng/testng -->
-	<dependency>
-	    <groupId>org.testng</groupId>
-	    <artifactId>testng</artifactId>
-	    <version>6.14.3</version>
-	    <scope>test</scope>
-	</dependency>
-  </dependencies>
-  <build>
-  	<plugins>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>Org.test.AEM.POC</groupId>
+	<artifactId>Org.test.AEM.POC</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Org.test.AEM.POC</name>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.14.3</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -25,7 +27,7 @@
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
@@ -36,7 +38,36 @@
 							<goal>prepare-agent</goal>
 						</goals>
 					</execution>
-					<!-- attached to Maven test phase -->
+					
+					<execution>
+						<id>check</id>
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<configuration>  <!-- NOTE: Set haltOnFailureto true when code coverage is enforced -->
+							<haltOnFailure>true</haltOnFailure>
+							<rules>
+								<rule>
+									<element>CLASS</element>
+									<limits>
+										<limit>
+											<counter>LINE</counter>
+											<value>COVEREDRATIO</value>
+											<minimum>0.80</minimum>
+										</limit>
+										<limit>
+											<counter>BRANCH</counter>
+											<value>COVEREDRATIO</value>
+											<minimum>0.80</minimum>
+										</limit>
+									</limits>
+									<excludes>  <!-- <exclude>com.test.ExampleExclusion</exclude> -->
+									</excludes>
+								</rule>
+							</rules>
+						</configuration>
+					</execution>
+					
 					<execution>
 						<id>report</id>
 						<phase>test</phase>
@@ -47,5 +78,5 @@
 				</executions>
 			</plugin>
 		</plugins>
-  </build>
+	</build>
 </project>
