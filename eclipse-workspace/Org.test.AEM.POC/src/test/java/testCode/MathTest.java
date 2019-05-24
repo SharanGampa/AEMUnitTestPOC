@@ -29,10 +29,4 @@ public class MathTest {
 		Assert.assertEquals(obj.getAbsVal(2), 2);
 	}
 	
-	@Test
-	public void unitTest4()
-	{
-		MathCode obj = new MathCode();
-		Assert.assertEquals(obj.getAbsVal(-3), 3);
-	}
 }
