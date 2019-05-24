@@ -26,3 +26,4 @@ steps:
     summaryFileLocation: '**/site/jacoco/jacoco.xml'
     reportDirectory: '**/site/cobertura'
     additionalCodeCoverageFiles: '**/site/jacoco/**'
+    condition: always()
