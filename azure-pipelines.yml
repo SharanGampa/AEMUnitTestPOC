@@ -12,7 +12,6 @@ pool:
 steps:
 - task: Maven@3
   inputs:
-    continueOnError: 'true'
     mavenPomFile: 'eclipse-workspace/Org.test.AEM.POC/pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
@@ -22,7 +21,12 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'install'
     codeCoverageToolOption: 'JaCoCo'
-    inputs:
-      summaryFileLocation: '**/site/jacoco/jacoco.xml'
-      reportDirectory: '**/site/cobertura'
-      additionalCodeCoverageFiles: '**/site/jacoco/**'
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'JaCoCo'
+    summaryFileLocation: '**/site/jacoco/jacoco.xml'
+    reportDirectory: '**/site/cobertura'
+    additionalCodeCoverageFiles: '**/site/jacoco/**'
+
+
+
