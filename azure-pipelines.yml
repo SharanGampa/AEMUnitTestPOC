@@ -26,6 +26,10 @@ steps:
     summaryFileLocation: '**/site/jacoco/jacoco.xml'
     reportDirectory: '**/site/cobertura'
     additionalCodeCoverageFiles: '**/site/jacoco/**'
-
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'
+    searchFolder: '**/junitreports'
 
 
