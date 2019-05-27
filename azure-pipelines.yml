@@ -25,7 +25,8 @@ steps:
     codeCoverageTool: 'JaCoCo'
     summaryFileLocation: '**/site/jacoco/jacoco.xml'
     reportDirectory: '**/site/cobertura'
-    additionalCodeCoverageFiles: '**/site/jacoco/**'
+    #additionalCodeCoverageFiles: '**/site/jacoco/**'
+    additionalCodeCoverageFiles: '**/jacoco.exec'
 
 
 
