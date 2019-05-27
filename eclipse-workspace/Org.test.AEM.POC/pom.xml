@@ -14,6 +14,11 @@
 			<version>6.14.3</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- <dependency>
+			<groupId>com.atlassian.clover</groupId>
+			<artifactId>clover</artifactId>
+			<version>4.0.0</version>
+		</dependency> -->
 	</dependencies>
 	<build>
 		<plugins>
@@ -28,6 +33,11 @@
 				</configuration>
 			</plugin>
 
+			<!-- <plugin> <groupId>com.atlassian.maven.plugins</groupId> <artifactId>clover-maven-plugin</artifactId> 
+				<configuration> <targetPercentage>50%</targetPercentage> <generatePdf>true</generatePdf> 
+				<generateXml>true</generateXml> </configuration> <executions> <execution> 
+				<phase>verify</phase> <goals> <goal>check</goal> </goals> </execution> </executions> 
+				</plugin> -->
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
@@ -38,7 +48,6 @@
 							<goal>prepare-agent</goal>
 						</goals>
 					</execution>
-					
 					<execution>
 						<id>report</id>
 						<phase>test</phase>
@@ -46,13 +55,12 @@
 							<goal>report</goal>
 						</goals>
 					</execution>
-					
 					<execution>
 						<id>check</id>
 						<goals>
 							<goal>check</goal>
 						</goals>
-						<configuration>  <!-- NOTE: Set haltOnFailureto true when code coverage is enforced -->
+						<configuration>
 							<haltOnFailure>true</haltOnFailure>
 							<rules>
 								<rule>
@@ -69,7 +77,8 @@
 											<minimum>0.80</minimum>
 										</limit>
 									</limits>
-									<excludes>  <!-- <exclude>com.test.ExampleExclusion</exclude> -->
+									<excludes>
+										<exclude>com.test.ExampleExclusion</exclude>
 									</excludes>
 								</rule>
 							</rules>

@@ -15,7 +15,7 @@ public class MathTest {
 		Assert.assertEquals(obj.getAbsVal(-1), 1);
 	}
 	
-	/*@Test
+	@Test
 	public void unitTest2()
 	{
 		MathCode obj = new MathCode();
@@ -27,6 +27,6 @@ public class MathTest {
 	{
 		MathCode obj = new MathCode();
 		Assert.assertEquals(obj.getAbsVal(2), 2);
-	}*/
+	}
 	
 }
