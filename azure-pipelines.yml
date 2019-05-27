@@ -13,7 +13,6 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'eclipse-workspace/Org.test.AEM.POC/pom.xml'
-    continueOnError: 'true'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
